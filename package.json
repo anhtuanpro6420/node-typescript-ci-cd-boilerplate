@@ -1,0 +1,45 @@
+{
+  "name": "shop-be",
+  "version": "1.0.0",
+  "description": "Online shop",
+  "main": "index.js",
+  "scripts": {
+    "start": "ts-node ./src/server.ts",
+    "dev": "nodemon",
+    "build": "tsc",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "nodemonConfig": {
+    "ignore": [
+      "dist",
+      ".git",
+      "node_modules"
+    ],
+    "watch": [
+      "src"
+    ],
+    "exec": "npm start",
+    "ext": "ts"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/anhtuanpro6420/shop-be.git"
+  },
+  "author": "Si",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/anhtuanpro6420/shop-be/issues"
+  },
+  "homepage": "https://github.com/anhtuanpro6420/shop-be#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  },
+  "devDependencies": {
+    "@types/node": "^15.12.4",
+    "eslint": "^7.29.0",
+    "eslint-plugin-import": "^2.23.4",
+    "nodemon": "^2.0.7",
+    "ts-node": "^10.0.0",
+    "typescript": "^4.3.4"
+  }
+}
