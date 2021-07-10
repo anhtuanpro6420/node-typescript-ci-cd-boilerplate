@@ -17,6 +17,7 @@
         "src/**/*.ts"
     ],
     "exclude": [
+        "src/tests",
         "node_modules",
         ".vscode"
     ]
