@@ -43,3 +43,20 @@ jobs:
       uses: actions/download-artifact@v2
       with:
         name: api-build
+    - name: Deploy api to hosting
+      uses: appleboy/ssh-action@master
+      with:
+        host: ${{ secrets.SSH_HOST }}
+        username: ${{ secrets.SSH_USER_NAME }}
+        password: ${{ secrets.SSH_PASSWORD }}
+        script: |
+          sudo rm -rf /var/www/api.hiiamsi.com/html/node-typescript-eslint-prettier-boilerplate
+          ${{ secrets.SSH_PASSWORD }}
+          cd /var/www/api.hiiamsi.com/html
+          sudo git clone git@github.com:anhtuanpro6420/node-typescript-eslint-prettier-boilerplate.git
+          sudo -u nodejs pm2 stop server
+          sudo npm install
+          sudo npm run build
+          sudo -u nodejs pm2 start /var/www/api.hiiamsi.com/html/node-typescript-eslint-prettier-boilerplate/dist/server.js
+          sudo -u nodejs pm2 save
+          echo 'Deployment successfully'
