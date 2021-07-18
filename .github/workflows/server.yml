@@ -39,10 +39,7 @@ jobs:
           dist
           !dist/**/*.md
         retention-days: 5
-    - name: Download api-build artifact
-      uses: actions/download-artifact@v2
-      with:
-        name: api-build
     - name: Restart server application
+      if: ${{ success() }}
       run: sudo -u nodejs pm2 restart server
 
