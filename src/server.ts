@@ -1,4 +1,10 @@
+import { config } from 'dotenv';
 import express from 'express';
+
+config();
+
+// eslint-disable-next-line import/first
+import './db/connection';
 
 const app = express();
 
