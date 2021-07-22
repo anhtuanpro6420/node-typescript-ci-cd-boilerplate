@@ -41,5 +41,7 @@ jobs:
         retention-days: 5
     - name: Restart server application
       if: ${{ success() }}
-      run: sudo -u nodejs pm2 restart server
+      run: sudo -u nodejs MONGODB_URI=$MONGODB_URI pm2 restart server --update-env
+      env:
+          MONGODB_URI: ${{ secrets.MONGODB_URI }}
 
